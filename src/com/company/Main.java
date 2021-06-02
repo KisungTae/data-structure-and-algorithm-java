@@ -1,6 +1,7 @@
 package com.company;
 
-import com.company.bitmanipulation.Question8Review;
+import com.company.recursionanddynamicprogramming.Question1Review;
+import com.company.recursionanddynamicprogramming.Question2;
 
 public class Main {
 
@@ -10,6 +11,10 @@ public class Main {
 //        new Question3Review();
 //        new Question6Review();
 //        new Question7Review();
-        new Question8Review();
+//        new Question8Review();
+//        new SieveOfEratosthenes();
+//        new Fibonacci();
+//        new Question1Review();
+        new Question2();
     }
 }
