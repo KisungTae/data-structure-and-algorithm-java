@@ -2,9 +2,9 @@ package com.company.recursionanddynamicprogramming;
 
 import java.util.Arrays;
 
-public class Question2 {
+public class Question2Review {
 
-    public Question2() {
+    public Question2Review() {
         int r = 8;
         int c = 5;
 

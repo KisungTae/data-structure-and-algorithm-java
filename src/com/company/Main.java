@@ -1,7 +1,7 @@
 package com.company;
 
-import com.company.recursionanddynamicprogramming.Question1Review;
-import com.company.recursionanddynamicprogramming.Question2;
+import com.company.recursionanddynamicprogramming.Question6Review;
+import com.company.recursionanddynamicprogramming.Question7;
 
 public class Main {
 
@@ -15,6 +15,11 @@ public class Main {
 //        new SieveOfEratosthenes();
 //        new Fibonacci();
 //        new Question1Review();
-        new Question2();
+//        new Question2Review();
+//        new Question3Review();
+//        new Question4Review();
+//        new Question5Review();
+//        new Question6Review();
+        new Question7();
     }
 }
