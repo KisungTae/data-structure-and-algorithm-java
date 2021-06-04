@@ -1,7 +1,8 @@
 package com.company;
 
-import com.company.recursionanddynamicprogramming.Question6Review;
-import com.company.recursionanddynamicprogramming.Question7;
+import com.company.recursionanddynamicprogramming.Question10;
+import com.company.recursionanddynamicprogramming.Question11;
+import com.company.recursionanddynamicprogramming.Question8Review;
 
 public class Main {
 
@@ -20,6 +21,9 @@ public class Main {
 //        new Question4Review();
 //        new Question5Review();
 //        new Question6Review();
-        new Question7();
+//        new Question7();
+//        new Question8Review();
+//        new Question10();
+        new Question11();
     }
 }
