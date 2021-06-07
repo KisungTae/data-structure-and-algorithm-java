@@ -1,8 +1,7 @@
 package com.company;
 
-import com.company.recursionanddynamicprogramming.Question10;
-import com.company.recursionanddynamicprogramming.Question11;
-import com.company.recursionanddynamicprogramming.Question8Review;
+import com.company.recursionanddynamicprogramming.Question14Review;
+import com.company.sortingandsearching.*;
 
 public class Main {
 
@@ -24,6 +23,14 @@ public class Main {
 //        new Question7();
 //        new Question8Review();
 //        new Question10();
-        new Question11();
+//        new Question11Review();
+//        new Question12Review();
+//        new Question13Review();
+//        new Question14Review();
+//        new BubbleSort();
+//        new SelectionSort();
+//        new MergeSort();
+//        new QuickSort();
+        new Question1();
     }
 }
