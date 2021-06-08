@@ -1,6 +1,5 @@
 package com.company;
 
-import com.company.recursionanddynamicprogramming.Question14Review;
 import com.company.sortingandsearching.*;
 
 public class Main {
@@ -31,6 +30,9 @@ public class Main {
 //        new SelectionSort();
 //        new MergeSort();
 //        new QuickSort();
-        new Question1();
+//        new Question1Review();
+//        new Question2();
+//        new Question3Review();
+        new Question4Review();
     }
 }
