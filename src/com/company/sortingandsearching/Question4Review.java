@@ -8,17 +8,44 @@ package com.company.sortingandsearching;
 
 public class Question4Review {
 
+
+
     public Question4Review() {
         Listy listy = new Listy();
-        int input = 10;
-
+        int input = 4;
         System.out.println("index of " + input + " is " + find(listy, input));
-
-
     }
 
     private int find(Listy listy, int input) {
+        int left = 0;
+        int right = 0;
+        int add = 1;
 
+        while (left <= right) {
+            int value = listy.elementAt(left);
+
+            if (value == input) return left;
+
+            int nextIndex = left + add;
+            int nextValue = listy.elementAt(nextIndex);
+
+            if (nextValue == input) return nextIndex;
+
+
+
+            if (nextValue == -1 || nextValue > input) {
+                add = 1;
+                left += add;
+                if (left >= right) return -1;
+                right = nextIndex;
+            } else {
+                left += add;
+                add += add;
+                right = left;
+            }
+        }
+
+        return -1;
     }
 
     class Listy {

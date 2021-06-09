@@ -33,6 +33,9 @@ public class Main {
 //        new Question1Review();
 //        new Question2();
 //        new Question3Review();
-        new Question4Review();
+//        new Question4Review();
+//        new Question5Review();
+//        new Question7Review();
+        new Question8();
     }
 }
