@@ -1,6 +1,8 @@
 package com.company;
 
 import com.company.moderate.Question11Review;
+import com.company.moderate.Question12;
+import com.company.moderate.Question16;
 
 public class Main {
 
@@ -49,6 +51,8 @@ public class Main {
 //        new Question8();
 //        new Question9Review();
 //        new Question10Review();
-        new Question11Review();
+//        new Question11Review();
+        new Question12();
+//        new Question16();
     }
 }
