@@ -1,8 +1,9 @@
 package com.company;
 
-import com.company.moderate.Question11Review;
-import com.company.moderate.Question12;
-import com.company.moderate.Question16;
+import com.company.moderate.Question17Review;
+import com.company.moderate.Question18Review;
+import com.company.moderate.Question19;
+import com.company.moderate.Question20;
 
 public class Main {
 
@@ -52,7 +53,14 @@ public class Main {
 //        new Question9Review();
 //        new Question10Review();
 //        new Question11Review();
-        new Question12();
+//        new Question12Review();
+//        new Question13Review();
+//        new Question14Review();
+//        new Question15();
 //        new Question16();
+//        new Question17Review();
+//        new Question18Review();
+//        new Question19();
+        new Question20();
     }
 }

@@ -22,9 +22,9 @@ package com.company.moderate;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Question12 {
+public class Question12Review {
 
-    public Question12() {
+    public Question12Review() {
         String xml =  "<family lastName=\"McDowell\" state=\"CA\">\n" +
                       "<person firstName=\"Gayle\">Some Message</person>\n" +
                       "</family>";

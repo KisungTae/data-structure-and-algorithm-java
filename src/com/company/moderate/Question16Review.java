@@ -7,9 +7,9 @@ package com.company.moderate;
 //        lnput:1, 2, 4, 7, 10, 11, 7, 12, 6, 7, 16, 18, 19
 //        Output: (3, 9)
 
-public class Question16 {
+public class Question16Review {
 
-    public Question16() {
+    public Question16Review() {
         int[] arr = {1, 2, 4, 7, 10, 11, 7, 12, 6, 7, 16, 18, 19};
         find(arr);
     }
