@@ -11,9 +11,9 @@ package com.company.hard;
 //        BiNode) into a doubly linked list. The values should be kept in order and the operation should be
 //        performed in place (that is, on the original data structure).
 
-public class Question12 {
+public class Question12Review {
 
-    public Question12() {
+    public Question12Review() {
         BiNode root = new BiNode(8);
 
         BiNode node6 = new BiNode(6);
@@ -25,7 +25,7 @@ public class Question12 {
         BiNode node20 = new BiNode(20);
 
         BiNode node2 = new BiNode(2);
-        BiNode node3 = new BiNode(3);
+//        BiNode node3 = new BiNode(3);
         BiNode node25 = new BiNode(25);
 
         root.node1 = node6;
@@ -37,7 +37,7 @@ public class Question12 {
         node15.node2  = node20;
 
         node4.node1 = node2;
-        node4.node2 = node3;
+//        node4.node2 = node3;
         node20.node2 = node25;
 
 
