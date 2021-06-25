@@ -1,7 +1,7 @@
 package com.company;
 
-import com.company.hard.Question16Review;
-import com.company.hard.Question17;
+import com.company.hard.Question19Review;
+import com.company.hard.Question21;
 
 public class Main {
 
@@ -81,6 +81,9 @@ public class Main {
 //        new Question14Review();
 //        new Question15Review();
 //        new Question16Review();
-        new Question17();
+//        new Question17Review();
+//        new Question18Review();
+//        new Question19Review();
+        new Question21();
     }
 }
