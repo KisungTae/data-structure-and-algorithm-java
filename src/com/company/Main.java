@@ -1,7 +1,8 @@
 package com.company;
 
-import com.company.bigo.BigO;
-import com.company.hard.Question26Review;
+import com.company.arraysandstrings.Question2Review;
+import com.company.arraysandstrings.Question3;
+import com.company.arraysandstrings.Question4;
 
 public class Main {
 
@@ -89,6 +90,10 @@ public class Main {
 //        new Question23Review();
 //        new Question24Review();
 //        new Question26Review();
-        new BigO();
+//        new BigO();
+//        new Question1();
+//        new Question2Review();
+//        new Question3();
+        new Question4();
     }
 }
