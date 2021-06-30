@@ -12,8 +12,8 @@ package com.company.arraysandstrings;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Question4 {
-    public Question4() {
+public class Question4Review {
+    public Question4Review() {
         String input = "aa bb";
         System.out.println(input + " is panlindrome: " + isPalindrome(input));
     }

@@ -1,8 +1,8 @@
 package com.company;
 
-import com.company.arraysandstrings.Question2Review;
-import com.company.arraysandstrings.Question3;
-import com.company.arraysandstrings.Question4;
+import com.company.arraysandstrings.Question7Review;
+import com.company.arraysandstrings.Question8;
+import com.company.linkedLists.Question1;
 
 public class Main {
 
@@ -94,6 +94,11 @@ public class Main {
 //        new Question1();
 //        new Question2Review();
 //        new Question3();
-        new Question4();
+//        new Question4Review();
+//        new Question5();
+//        new Question6Review();
+//        new Question7Review();
+//        new Question8();
+        new Question1();
     }
 }
