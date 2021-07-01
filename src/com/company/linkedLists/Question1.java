@@ -1,16 +1,11 @@
 package com.company.linkedLists;
 
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 public class Question1 {
     public Question1() {
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        Random random = new Random();
-        for (int i = 0; i < 10; i++) {
-            linkedList.append(random.nextInt(5));
-        }
+        LinkedList<Integer> linkedList = LinkedList.generateRandomLinkedList(10);
         linkedList.print();
         removeDup(linkedList);
         linkedList.print();
@@ -23,7 +18,7 @@ public class Question1 {
 
         while (itr != null) {
             if (memo.contains(itr.data)) {
-
+                linkedList.remove(itr);
             } else {
                 memo.add(itr.data);
             }

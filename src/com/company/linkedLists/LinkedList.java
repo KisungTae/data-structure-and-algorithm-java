@@ -6,6 +6,7 @@ public class LinkedList<T> {
 
     public Node<T> head;
     public Node<T> tail;
+    public int size;
 
     public void append(T data) {
         Node<T> node = new Node<>(data);
@@ -17,13 +18,34 @@ public class LinkedList<T> {
             node.prev = tail;
         }
         tail = node;
+        size++;
+    }
+
+    public void prepend(T data) {
+        Node<T> node = new Node<>(data);
+
+        if (head == null) {
+            head = node;
+        } else {
+            node.next = head;
+            head = node;
+        }
+        size++;
     }
 
     public void remove(Node<T> node) {
-        Node<T> prev = node.prev;
+        if (node.prev != null)
+            node.prev.next = node.next;
 
+        if (node.next != null)
+            node.next.prev = node.prev;
 
-        Node<T> next = node.next;
+        if (node == head) {
+            head = node.next;
+        } else if (node == tail) {
+            tail = node.prev;
+        }
+        size--;
     }
 
     public void print() {
@@ -47,6 +69,24 @@ public class LinkedList<T> {
         System.out.print("null");
         System.out.println();
     }
+
+    public static LinkedList<Integer> generateRandomLinkedList(int size) {
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        Random random = new Random();
+        for (int i = 0; i < size; i++) {
+            linkedList.append(random.nextInt(size));
+        }
+        return linkedList;
+    }
+
+    public static LinkedList<Integer> generateIncrementLinkedList(int size) {
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        for (int i = 0; i < size; i++) {
+            linkedList.append(i);
+        }
+        return linkedList;
+    }
+
 
     public class Node<T> {
         public T data;
