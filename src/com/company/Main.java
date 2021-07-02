@@ -1,8 +1,7 @@
 package com.company;
 
-import com.company.arraysandstrings.Question7Review;
-import com.company.arraysandstrings.Question8;
-import com.company.linkedLists.*;
+import com.company.stacksandqueues.Question3Review;
+import com.company.stacksandqueues.Question4;
 
 public class Main {
 
@@ -103,6 +102,13 @@ public class Main {
 //        new Question2();
 //        new Question3();
 //        new Question4();
-        new Question5();
+//        new Question5Review();
+//        new Question6();
+//        new Question7();
+//        new Question8Review();
+//        new Question1Review();
+//        new Question2();
+//        new Question3Review();
+        new Question4();
     }
 }

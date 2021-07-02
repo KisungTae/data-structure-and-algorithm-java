@@ -11,8 +11,8 @@ package com.company.linkedLists;
 //        Input: (6 -> 1 -> 7) + (2 -> 9 -> 5).That is,617 + 295.
 //        Output: 9 -> 1 -> 2. That is, 912.
 
-public class Question5 {
-    public Question5() {
+public class Question5Review {
+    public Question5Review() {
         LinkedList<Integer> number1 = LinkedList.generateRandomLinkedList(3);
         LinkedList<Integer> number2 = LinkedList.generateRandomLinkedList(4);
         number1.head.data = 5;
