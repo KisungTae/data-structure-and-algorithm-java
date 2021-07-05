@@ -1,7 +1,10 @@
 package com.company;
 
-import com.company.stacksandqueues.Question3Review;
-import com.company.stacksandqueues.Question4;
+import com.company.linkedLists.Question7;
+import com.company.stacksandqueues.Question5Review;
+import com.company.stacksandqueues.Question6;
+import com.company.treesandgraphs.Question1;
+import com.company.treesandgraphs.Question2;
 
 public class Main {
 
@@ -109,6 +112,10 @@ public class Main {
 //        new Question1Review();
 //        new Question2();
 //        new Question3Review();
-        new Question4();
+//        new Question4();
+//        new Question5Review();
+//        new Question6();
+//        new Question1();
+        new Question2();
     }
 }
