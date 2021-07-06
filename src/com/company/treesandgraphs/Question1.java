@@ -19,17 +19,17 @@ public class Question1 {
         GraphNode graphNode7 = new GraphNode(7);
         GraphNode graphNode8 = new GraphNode(8);
 
-        graphNode1.children.add(graphNode2);
-        graphNode1.children.add(graphNode3);
-        graphNode3.children.add(graphNode4);
-        graphNode3.children.add(graphNode5);
-        graphNode3.children.add(graphNode6);
+//        graphNode1.children.add(graphNode2);
+//        graphNode1.children.add(graphNode3);
+//        graphNode3.children.add(graphNode4);
+//        graphNode3.children.add(graphNode5);
+//        graphNode3.children.add(graphNode6);
 //        graphNode5.children.add(graphNode8);
 //        graphNode6.children.add(graphNode7);
 
-        graph.children.add(graphNode1);
-        graph.children.add(graphNode3);
-        graph.children.add(graphNode5);
+//        graph.children.add(graphNode1);
+//        graph.children.add(graphNode3);
+//        graph.children.add(graphNode5);
 
         System.out.println("find path: " + findPath(graphNode1, graphNode7));
 
@@ -45,11 +45,11 @@ public class Question1 {
             if (graphNode == toNode) return true;
 
             for (int i = 0; i < graphNode.children.size(); i++) {
-                GraphNode child = graphNode.children.get(i);
-                if (child.status == GraphNode.Status.NOT_VISITED) {
-                    child.status = GraphNode.Status.VISITING;
-                    graphNodes.add(child);
-                }
+//                GraphNode child = graphNode.children.get(i);
+//                if (child.status == GraphNode.Status.NOT_VISITED) {
+//                    child.status = GraphNode.Status.VISITING;
+//                    graphNodes.add(child);
+//                }
             }
         }
 
