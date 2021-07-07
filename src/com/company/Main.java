@@ -117,6 +117,9 @@ public class Main {
 //        new Question4();
 //        new Question5Review();
 //        new Question6Review();
-        new Question7();
+//        new Question7Review();
+//        new Question8Review();
+//        new Question10Review();
+        new Question11();
     }
 }

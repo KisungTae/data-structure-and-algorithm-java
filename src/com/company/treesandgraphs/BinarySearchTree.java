@@ -29,6 +29,31 @@ public class BinarySearchTree {
         }
     }
 
+    private BinaryNode<Integer> delete(BinaryNode<Integer> node, int key) {
+        if (node == null) return null;
+
+        if (key < node.data) {
+            node.left = delete(node.left, key);
+        } else if (key > node.data) {
+            node.right = delete(node.right, key);
+        } else {
+            if (node.left == null) return node.right;
+            if (node.right == null) return node.left;
+
+            node.data = leftMostValue(node.right);
+            node.right = delete(node.right, node.data);
+        }
+
+        return node;
+    }
+
+    private int leftMostValue(BinaryNode<Integer> root) {
+        while (root.left != null) {
+            root = root.left;
+        }
+        return root.data;
+    }
+
 
     public static BinaryNode<Integer> generate(int size) {
         int[] arr = new int[size];

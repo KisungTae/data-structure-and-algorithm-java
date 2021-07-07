@@ -15,8 +15,8 @@ import com.company.Pair;
 
 import java.util.*;
 
-public class Question7 {
-    public Question7() {
+public class Question7Review {
+    public Question7Review() {
         char[] projects = {'a', 'b', 'c', 'd', 'e', 'f'};
         ArrayList<Pair<Character>> dependencies = new ArrayList<>();
         dependencies.add(new Pair<>('a', 'd'));
