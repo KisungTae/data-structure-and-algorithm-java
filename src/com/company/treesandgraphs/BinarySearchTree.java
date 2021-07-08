@@ -1,13 +1,16 @@
 package com.company.treesandgraphs;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
 public class BinarySearchTree {
 
     public BinaryNode<Integer> root;
+    public int size;
 
     public void add(int data) {
+        size++;
         BinaryNode<Integer> node = new BinaryNode<>(data);
         if (root == null) root = node;
         else addHelper(root, node);
@@ -29,7 +32,7 @@ public class BinarySearchTree {
         }
     }
 
-    private BinaryNode<Integer> delete(BinaryNode<Integer> node, int key) {
+    public BinaryNode<Integer> delete(BinaryNode<Integer> node, int key) {
         if (node == null) return null;
 
         if (key < node.data) {
@@ -37,6 +40,7 @@ public class BinarySearchTree {
         } else if (key > node.data) {
             node.right = delete(node.right, key);
         } else {
+            size--;
             if (node.left == null) return node.right;
             if (node.right == null) return node.left;
 
@@ -45,6 +49,35 @@ public class BinarySearchTree {
         }
 
         return node;
+    }
+
+
+    public BinaryNode<Integer> random() {
+        Random random = new Random();
+        int index = random.nextInt(size);
+        int[] count = new int[1];
+        System.out.println("random index: " + index);
+        return findWithIndex(root, 6, count);
+    }
+
+
+    public BinaryNode<Integer> findWithIndex(BinaryNode<Integer> root, int index, int[] count) {
+        if (root == null) return null;
+
+        System.out.println("count:" + count[0]);
+
+        if (count[0] == index) return root;
+
+
+        count[0]++;
+
+        BinaryNode<Integer> left = findWithIndex(root.left, index, count);
+        if (left != null) return left;
+
+        BinaryNode<Integer> right = findWithIndex(root.right, index, count);
+        if (right != null) return right;
+
+        return null;
     }
 
     private int leftMostValue(BinaryNode<Integer> root) {

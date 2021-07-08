@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.bitmanipulation.BitManipulation;
 import com.company.treesandgraphs.*;
 
 public class Main {
@@ -120,6 +121,8 @@ public class Main {
 //        new Question7Review();
 //        new Question8Review();
 //        new Question10Review();
-        new Question11();
+//        new Question11Review();
+//        new Question12Review();
+        new BitManipulation();
     }
 }
