@@ -1,49 +1,80 @@
 package com.company.bitmanipulation;
 
+import java.util.Arrays;
+
+
+//https://stackoverflow.com/questions/29682355/why-java-unsigned-bit-shifting-for-a-negative-byte-is-so-strange
+
 public class Question8Review {
-
     public Question8Review() {
-        int width = 32;
-        int col = width / 8;
-        int height = 3;
-        byte[] screen = new byte[height * col];
-        draw(screen, width, 33, 60, 1);
-
-        for (int i = 0; i < height * col; i += col) {
-            for (int j = i; j < i + col; j++) {
-                System.out.print(getByteString(screen[j]));
-            }
-            System.out.println("");
-        }
+        byte[] screen = new byte[16];
+        Arrays.fill(screen, (byte) 0);
+        int width = 4;
+        int x1 = 8;
+        int x2 = 23;
+        int y = 2;
+        draw(screen, width, x1, x2, y);
+        print(screen, width);
     }
 
     private void draw(byte[] screen, int width, int x1, int x2, int y) {
-        byte startColumn = (byte) (x1 / 8);
-        byte startIndex = (byte) (x1 % 8);
-        byte startMask = (byte) (0xFF >>> startIndex);
-        byte startMasked = (byte) (screen[startColumn] | startMask);
+        int leftIndex = x1 / 8 + (width * y);
+        int rightIndex = x2 / 8 + (width * y);
 
-        byte endColumn = (byte) (x2 / 8);
-        byte endIndex = (byte) (x2 % 8);
-        byte endMask = (byte) (0xFF << (7 - endIndex));
-        byte endMasked = (byte) (screen[endColumn] | endMask);
+        if (leftIndex == rightIndex) {
+            int leftOffset = x1 % 8;
+            int rightOffset = x2 % 8;
 
-        if (startColumn == endColumn) {
-            screen[startColumn] = (byte) (startMasked & endMasked);
+            byte leftMask = rightShift((byte)-1, leftOffset);
+            byte rightMask = (byte) (-1 << (7 - rightOffset));
+            byte mask = (byte) (leftMask & rightMask);
+            screen[leftIndex] |= mask;
         } else {
-            screen[startColumn] = startMasked;
-            screen[endColumn] = endMasked;
+            int leftOffset = x1 % 8;
+            byte leftMask = rightShift((byte)-1, leftOffset);
+            screen[leftIndex] |= leftMask;
 
-            int start = startColumn + 1;
-            int end = endColumn - 1;
+            x1 += (8 - leftOffset);
+            int length = x2 - x1;
 
-            for (int i = start; i <= end; i++) {
-                screen[i] = (byte) 0xFF;
+            for (int i = 0; i < (length / 8); i++) {
+                leftIndex++;
+                screen[leftIndex] = (byte) -1;
             }
+
+            int rightOffset = x2 % 8;
+            byte rightMask = (byte) (-1 << (7 - rightOffset));
+            screen[rightIndex] |= rightMask;
         }
     }
 
-    private String getByteString(byte b) {
-        return String.format("%8s", Integer.toBinaryString(b & 0xFF)).replace(' ', '0');
+    private byte rightShift(byte b, int count) {
+        int temp = b & 0xFF;
+        temp >>>= count;
+        return (byte) temp;
+    }
+
+    private void print(byte[] screen, int width) {
+        for (int i = 0; i < screen.length; i = i + width) {
+            for (int j = i; j < i + width; j++) {
+                System.out.print(printByte(screen[j]));
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+
+    private String printByte(byte b) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 7; i >= 0; i--) {
+            byte mask = (byte) (1 << i);
+            byte bit = 1;
+            if ((b & mask) == 0)
+                bit = 0;
+
+            String bitString = String.valueOf(bit);
+            stringBuilder.append(bitString);
+        }
+        return stringBuilder.toString();
     }
 }

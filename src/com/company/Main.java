@@ -1,7 +1,9 @@
 package com.company;
 
-import com.company.bitmanipulation.BitManipulation;
-import com.company.treesandgraphs.*;
+import com.company.bitmanipulation.Question8Review;
+import com.company.recursionanddynamicprogramming.Question1Review;
+import com.company.recursionanddynamicprogramming.Question2Review;
+import com.company.recursionanddynamicprogramming.Question3Review;
 
 public class Main {
 
@@ -123,6 +125,17 @@ public class Main {
 //        new Question10Review();
 //        new Question11Review();
 //        new Question12Review();
-        new BitManipulation();
+//        new BitManipulation();
+//        new Question1();
+//        new Question2Review();
+//        new Question3Review();
+//        new Question4Review();
+//        new Question5();
+//        new Question6();
+//        new Question7();
+//        new Question8Review();
+//        new Question1Review();
+//        new Question2Review();
+        new Question3Review();
     }
 }

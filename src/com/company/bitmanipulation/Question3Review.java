@@ -1,33 +1,31 @@
 package com.company.bitmanipulation;
 
+//Flip Bit to Win: You have an integer and you can flip exactly one bit from a O to a 1. Write code to
+//        find the length of the longest sequence of 1 s you could create.
+//        EXAMPLE
+//        Input: 1775 (or: 11011101111)
+//        Output: 8
+
 public class Question3Review {
     public Question3Review() {
-        flipToWin();
-    }
-
-    public void flipToWin() {
-//        int input = 1775;
-
-        int input = Integer.valueOf("1001010000", 2);
-        int prevCount = 0;
-        int count = 0;
-        int max = Integer.MIN_VALUE;
-        boolean flip = false;
+        int input = 0b11001101110000;
+        int prev = 0;
+        int sum = 0;
+        int best = Integer.MIN_VALUE;
 
         while (input > 0) {
-            int and = input & 1;
-            System.out.println("input: " + Integer.toBinaryString(input));
-            if (and > 0) {
-                count++;
+            System.out.println("prev: " + prev + " | sum: " + sum + " | best: " + best);
+            if ((input & 1) == 0) {
+                best = Math.max(sum, best);
+                sum = sum - prev;
+                sum++;
+                prev = sum;
             } else {
-                max = Math.max(max, count);
-                count -= prevCount;
-                count++;
-                prevCount = count;
+                sum++;
             }
             input >>>= 1;
         }
 
-        System.out.println("max: " + max);
+
     }
 }

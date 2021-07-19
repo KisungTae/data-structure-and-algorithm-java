@@ -3,11 +3,34 @@ package com.company.recursionanddynamicprogramming;
 public class Question3Review {
 
     public Question3Review() {
-//        int[] arr = {-2, -1, 1, 3, 5, 6, 7, 9, 10, 14, 16, 20, 30};
-        int[] arr = {-1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 30};
+        int[] arr = {-2, -1, 1, 3, 5, 6, 7, 9, 10, 14, 16, 20, 30};
+//        int[] arr = {-1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 30};
 //        System.out.println("magic index: " + magicIndex(arr, 0, arr.length - 1));
-        System.out.println("magic index: " + magicIndexWithDuplicate(arr, 0, arr.length - 1));
+//        System.out.println("magic index: " + magicIndexWithDuplicate(arr, 0, arr.length - 1));
     }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private int magicIndex(int[] arr, int left, int right) {
         if (left > right) return -1;
