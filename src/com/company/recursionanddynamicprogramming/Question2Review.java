@@ -6,6 +6,9 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+
+//This solution is O ( 2r+c ), since each path has r+c steps and there are two choices we can make at each step.
+
 public class Question2Review {
 
     public Question2Review() {

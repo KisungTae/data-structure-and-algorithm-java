@@ -4,7 +4,7 @@ package com.company.recursionanddynamicprogramming;
 //        steps at a time. Implement a method to count how many possible ways the child can run up the
 //        stairs.
 
-//the runtime of this algorithm is exponential (roughly O ( 3") )
+// the runtime of this algorithm is exponential (roughly O ( 3") )
 
 public class Question1Review {
 

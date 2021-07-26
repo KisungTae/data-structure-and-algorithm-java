@@ -1,9 +1,6 @@
 package com.company;
 
-import com.company.bitmanipulation.Question8Review;
-import com.company.recursionanddynamicprogramming.Question1Review;
-import com.company.recursionanddynamicprogramming.Question2Review;
-import com.company.recursionanddynamicprogramming.Question3Review;
+import com.company.recursionanddynamicprogramming.*;
 
 public class Main {
 
@@ -136,6 +133,13 @@ public class Main {
 //        new Question8Review();
 //        new Question1Review();
 //        new Question2Review();
-        new Question3Review();
+//        new Question3Review();
+//        new Question4Review();
+//        new Question5Review();
+//        new Question6Review();
+//        new Question7();
+//        new Question8Review();
+//        new Question9Review();
+        new Question11Review();
     }
 }
