@@ -140,6 +140,10 @@ public class Main {
 //        new Question7();
 //        new Question8Review();
 //        new Question9Review();
-        new Question11Review();
+//        new Question11Review();
+//        new Question12Review();
+//        new Question13Review();
+        new Question14Review();
     }
+
 }

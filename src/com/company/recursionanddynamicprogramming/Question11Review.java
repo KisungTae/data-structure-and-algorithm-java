@@ -11,7 +11,54 @@ public class Question11Review {
         int n = 22;
         int[] denoms = {25, 10, 5, 1};
         System.out.println("count: " + countAnswer(denoms, n, 0));
+        int[][] memo = new int[n + 1][denoms.length];
+        System.out.println("count: " + countWithMemo(denoms, n, 0, memo));
     }
+
+    private int countWithMemo(int[] denoms, int n, int index, int[][] memo) {
+        if (index >= denoms.length - 1) {
+            return 1;
+        }
+        if (memo[n][index] > 0) return memo[n][index];
+
+        int denom = denoms[index];
+        int ways = 0;
+        for (int i = 0; i * denom <= n; i++) {
+            int remain = n - (i * denom);
+            ways += countWithMemo(denoms, remain, index + 1, memo);
+        }
+
+        memo[n][index] = ways;
+        return ways;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private int countAnswer(int[] denoms, int n, int index) {
         if (index >= denoms.length - 1) return 1;
@@ -24,6 +71,7 @@ public class Question11Review {
         }
         return ways;
     }
+
 
 
 
