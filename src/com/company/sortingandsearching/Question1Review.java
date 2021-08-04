@@ -11,10 +11,82 @@ public class Question1Review {
 
     public Question1Review() {
         int[] arrA = {1, 2, 3, 3, 4, 5, 6, 17, 18, 19, 20, 0, 0, 0, 0, 0, 0, 0, 0};
-        int[] arrB = {30, 60, 70};
-        merge(arrA, end(arrA), arrB);
+        int[] arrB = {0, 17, 70};
+//        sort(arrA, arrB);
+        sortAnswer(arrA, arrB, 11, 3);
         System.out.println(Arrays.toString(arrA));
     }
+
+    private void sortAnswer(int[] longer, int[] shorter, int longerLength, int shorterLength) {
+        int longerLastIndex = longerLength - 1;
+        int shorterLastIndex = shorterLength - 1;
+        int lastIndex = longerLength + shorterLength - 1;
+        while (shorterLastIndex >= 0) {
+            if (longerLastIndex >= 0 && longer[longerLastIndex] > shorter[shorterLastIndex]) {
+                longer[lastIndex] = longer[longerLastIndex];
+                longerLastIndex--;
+            } else {
+                longer[lastIndex] = shorter[shorterLastIndex];
+                shorterLastIndex--;
+            }
+            lastIndex--;
+        }
+    }
+
+
+
+
+
+
+
+
+    private void sort(int[] longer, int[] shorter) {
+        int longerIndex = 10;
+        int shorterIndex = shorter.length - 1;
+        int lastIndex = longerIndex + shorterIndex + 1;
+
+        while (longerIndex >= 0 && shorterIndex >= 0) {
+            if (longer[longerIndex] > shorter[shorterIndex]) {
+                longer[lastIndex] = longer[longerIndex];
+                longerIndex--;
+            } else {
+                longer[lastIndex] = shorter[shorterIndex];
+                shorterIndex--;
+            }
+            lastIndex--;
+        }
+        while (shorterIndex >= 0 && lastIndex >= 0) {
+            longer[lastIndex] = shorter[shorterIndex];
+            lastIndex--;
+            shorterIndex--;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private int end(int[] arr) {
         for (int i = arr.length - 1; i >= 0; i--) {

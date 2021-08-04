@@ -11,18 +11,44 @@ package com.company.sortingandsearching;
 import java.util.Arrays;
 import java.util.Random;
 
-public class Question7Review {
+public class Question7ReviewAgain {
 
-    public Question7Review() {
-        int[] file = new int[10];
+    public Question7ReviewAgain() {
+        int[] file = new int[100];
         Random random = new Random();
         for (int i = 0; i < file.length; i++) {
-            file[i] = random.nextInt(10);
+            file[i] = random.nextInt(100);
         }
-
-        System.out.println(Arrays.toString(file));
-        System.out.println(generate(file));
+//        System.out.println(Arrays.toString(file));
+//        System.out.println(generate(file));
     }
+
+    private void missing(int[] file) {
+        int length = (file.length / 8) + 1;
+        byte[] flags = new byte[length];
+
+        for (int num : file) {
+            int place = num / 8;
+            int index = num % 8;
+
+            byte flag = flags[place];
+            byte mask = (byte) (1 << index);
+
+            flags[place] = (byte) (flag | mask);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     private int generate(int[] file) {
         int flagSize = Integer.MAX_VALUE / 8;

@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.recursionanddynamicprogramming.*;
+import com.company.sortingandsearching.*;
 
 public class Main {
 
@@ -143,7 +143,16 @@ public class Main {
 //        new Question11Review();
 //        new Question12Review();
 //        new Question13Review();
-        new Question14Review();
+//        new Question14ReviewAgain();
+//        new Question2();
+//        new Question1Review();
+//        new Question3Review();
+//        new Question4Review();
+//        new Question5Review();
+//        new Question7ReviewAgain();
+//        new Question9ReviewAgain();
+//        new Question10Review();
+        new Question11Review();
     }
 
 }

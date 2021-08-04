@@ -10,12 +10,35 @@ package com.company.sortingandsearching;
 
 //      10:32
 
+import java.util.Arrays;
+
 public class Question11Review {
     public Question11Review() {
         int[] arr = {5, 3, 1, 2, 3};
+        alternate(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
-    private void alternate() {
+    private void alternate(int[] arr) {
 
+        for (int i = 1; i < arr.length; i += 2) {
+            int maxIndex = maxIndex(arr, i - 1, i, i + 1);
+            if (maxIndex != i) {
+                int temp = arr[maxIndex];
+                arr[maxIndex] = arr[i];
+                arr[i] = temp;
+            }
+        }
+    }
+
+    private int maxIndex(int[] arr, int prev, int curr, int next) {
+        int a = prev >= 0 && prev < arr.length ? arr[prev] : Integer.MIN_VALUE;
+        int b = curr >= 0 && curr < arr.length ? arr[curr] : Integer.MIN_VALUE;
+        int c = next >= 0 && next < arr.length ? arr[next] : Integer.MIN_VALUE;
+
+        int max = Math.max(a, Math.max(b, c));
+        if (max == a) return prev;
+        else if (max == b) return curr;
+        else return next;
     }
 }

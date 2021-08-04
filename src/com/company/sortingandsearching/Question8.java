@@ -24,6 +24,33 @@ public class Question8 {
         printDup(numbers.stream().mapToInt(i -> i).toArray());
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     private void printDup(int[] arr) {
         byte[] flags = new byte[4000];
 

@@ -14,6 +14,36 @@ public class Question2 {
         System.out.println(Arrays.toString(arr));
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     private void group(String[] arr) {
         HashMap<String, ArrayList<String>> map = new HashMap<>();
 

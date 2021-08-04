@@ -12,14 +12,51 @@ public class Question5Review {
 
     public Question5Review() {
         String[] arr = {"", "at", "", "ball", "", "bull", "", "", "", "", "car", "", "", "dad", ""};
-        String input = "a";
+        String input = "at";
 
-        System.out.println("index of " + input + " is " + find(arr, input, 0, arr.length - 1));
+//        System.out.println("index of " + input + " is " + find(arr, input, 0, arr.length - 1));
+        System.out.println("index of " + input + " is " + findIndex(arr, input, 0, arr.length - 1));
 
     }
 
+    private int findIndex(String[] arr, String input, int start, int end) {
+
+        if (start > end) return -1;
+
+        int middleIndex = (start + end) / 2;
+
+
+        if (arr[middleIndex].isEmpty()) {
+            int left = middleIndex - 1;
+            int right = middleIndex + 1;
+
+            while (true) {
+
+                if (left < start && right > end) return -1;
+                if (start <= left && !arr[left].isEmpty()) {
+                    middleIndex = left;
+                    break;
+                }
+                if (right <= end && !arr[right].isEmpty()) {
+                    middleIndex = right;
+                    break;
+                }
+                left--;
+                right++;
+            }
+        }
+
+        String middleValue = arr[middleIndex];
+
+        if (input.equals(middleValue)) return middleIndex;
+        else if (input.compareTo(middleValue) > 0) return findIndex(arr, input, middleIndex + 1, end);
+        else return findIndex(arr, input, start, middleIndex - 1);
+
+    }
+
+
     private int find(String[] arr, String input, int left, int right) {
-        System.out.println("left: " + left + " right: " + right );
+        System.out.println("left: " + left + " right: " + right);
         if (left > right) return -1;
 
         int midIndex = (left + right) / 2;
@@ -92,7 +129,7 @@ public class Question5Review {
         while (index > leftEnd && arr[index].isEmpty()) {
             index--;
         }
-        if (arr[index].isEmpty()) return  -1;
+        if (arr[index].isEmpty()) return -1;
         return index;
     }
 
@@ -100,7 +137,7 @@ public class Question5Review {
         while (index < rightEnd && arr[index].isEmpty()) {
             index++;
         }
-        if (arr[index].isEmpty()) return  -1;
+        if (arr[index].isEmpty()) return -1;
         return index;
     }
 
