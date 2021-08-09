@@ -14,6 +14,19 @@ public class Question16Review {
         find(arr);
     }
 
+    
+
+
+
+
+
+
+
+
+
+
+
+
     private void find(int[] arr) {
         int left = Integer.MAX_VALUE;
         int right = 0;

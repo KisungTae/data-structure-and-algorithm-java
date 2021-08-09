@@ -7,9 +7,9 @@ package com.company.moderate;
 
 import java.awt.*;
 
-public class Question13Review {
+public class Question13ReviewAgain {
 
-    public Question13Review() {
+    public Question13ReviewAgain() {
         Rectangle rectangle1 = new Rectangle(3, new DoublePoint(1, 4));
         Rectangle rectangle2 = new Rectangle(2, new DoublePoint(3, 5));
 

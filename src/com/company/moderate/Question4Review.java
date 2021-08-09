@@ -7,6 +7,7 @@ package com.company.moderate;
 import com.sun.security.jgss.GSSUtil;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -39,8 +40,26 @@ public class Question4Review {
             }
 
         }
-
     }
+
+
+    private void buildBoards(int[][] matrix, int xCount, int yCount, int row, int col, int place) {
+        if (row >= matrix.length || col >= matrix[0].length) return;
+
+        matrix[row][col] = place;
+
+
+        if (xCount <= 5) {
+            buildBoards(matrix, xCount + 1, yCount, row, col + 1, 1);
+            buildBoards(matrix, xCount + 1, yCount, row + 1, col, 1);
+        }
+
+        if (yCount <= 5) {
+            buildBoards(matrix, xCount, yCount + 1, row, col + 1, 2);
+            buildBoards(matrix, xCount, yCount + 1, row + 1, col, 2);
+        }
+    }
+
 
     private void printMatrix(int[][] matrix) {
         for (int[] row : matrix) {

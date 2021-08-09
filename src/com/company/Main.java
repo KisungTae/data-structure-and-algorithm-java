@@ -1,6 +1,7 @@
 package com.company;
 
-import com.company.sortingandsearching.*;
+import com.company.moderate.Question14ReviewAgain;
+import com.company.moderate.Question16Review;
 
 public class Main {
 
@@ -152,7 +153,16 @@ public class Main {
 //        new Question7ReviewAgain();
 //        new Question9ReviewAgain();
 //        new Question10Review();
-        new Question11Review();
+//        new Question11Review();
+//        new Question3Review();
+//        new Question4ReviewAgain();
+//        new Question5Review();
+//        new Question7ReviewAgain();
+//        new Question9Review();
+//        new Question10ReviewAgain();
+//        new Question11();
+//        new Question14ReviewAgain();
+        new Question16Review();
     }
 
 }

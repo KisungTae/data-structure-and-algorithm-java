@@ -7,64 +7,84 @@ package com.company.moderate;
 
 public class Question9Review {
     public Question9Review() {
-
-        int a = 100;
+        int a = 22;
         int b = 10;
 
-        System.out.println(negate(103));
+        System.out.println(negateAnswer(23));
+//        System.out.println(multiply(20, -1));
+//        System.out.println(divide(-20, 7));
+    }
 
+    private int negateAnswer(int num) {
+        int sign = num > 0 ? -1 : 1;
+        int delta = sign;
+        int negate = 0;
+        while (num != 0) {
+            System.out.println("delta: " + delta);
+            boolean differentSign = (num + delta > 0) != (num > 0);
+            if (num + delta != 0 && differentSign) {
+                delta = sign;
+            }
+
+            num += delta;
+            negate += delta;
+            delta += delta;
+        }
+        return negate;
     }
 
     private int negate(int num) {
-        if (num == 0) return 0;
-
         int sign = num > 0 ? -1 : 1;
-        int add = sign;
-        int negatedNum = 0;
-
-        while (true) {
-            int nextNum = num + add;
-            if (nextNum == 0) {
-                negatedNum += add;
-                break;
-            }
-
-            int currSign = nextNum > 0 ? 1 : -1;
-            if (currSign == sign) {
-                add = sign;
-            } else {
-                negatedNum += add;
-                add += add;
-                num = nextNum;
-            }
+        int countSign = num > 0 ? 1 : -1;
+        int count = 0;
+        int negate = 0;
+        while (count != num) {
+            negate += sign;
+            count += countSign;
         }
-
-        return negatedNum;
+        return negate;
     }
 
-    private int subtract(int a, int b) {
-
-        return 0;
+    private int minus(int a, int b) {
+        return a + negate(b);
     }
 
     private int multiply(int a, int b) {
-        if (a == 0 || b == 0) return 0;
+        int count = abs(b);
+        int sign = 0;
 
-        int smaller = Math.min(a, b);
-        int bigger = Math.max(a, b);
+        if (a > 0 && b > 0) sign = a;
+        else if (a < 0 && b > 0) sign = a;
+        else if (a > 0 && b < 0) sign = negate(a);
+        else sign = negate(a);
 
-        for (int i = 0; i < Math.abs(smaller); i++) {
-            bigger += bigger;
+        int multiply = 0;
+        while (count > 0) {
+            multiply += sign;
+            count--;
         }
-
-
-
-        if ((a > 0 && b > 0) || (a < 0 && b < 0)) {
-
-        } else {
-
-        }
-
-        return 1;
+        return multiply;
     }
+
+    private int divide(int a, int b) {
+        int sign = (a > 0 && b > 0) || (a < 0 && b < 0) ? 1 : -1;
+        int quotient = 0;
+        int absA = abs(a);
+        int absB = abs(b);
+        int countB = absB;
+
+        while (countB <= absA) {
+            countB += absB;
+            quotient += sign;
+        }
+
+        return quotient;
+    }
+
+    private int abs(int num) {
+        if (num >= 0) return num;
+        else return negate(num);
+    }
+
+
 }
