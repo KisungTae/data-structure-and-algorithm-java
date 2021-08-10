@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+// https://stackoverflow.com/questions/19326125/what-is-the-time-complexity-of-this-hash-function
+
 
 //T9: On old cell phones, users typed on a numeric keypad and the phone would provide a list of
 //        words that matched these numbers. Each digit mapped to a set of O - 4 letters. Implement an algorithm

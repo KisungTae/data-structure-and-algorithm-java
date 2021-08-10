@@ -7,8 +7,8 @@ package com.company.moderate;
 
 // 8:11
 
-public class Question18Review {
-    public Question18Review() {
+public class Question18ReviewAgain {
+    public Question18ReviewAgain() {
         String pattern = "aabab";
         String value = "catcatgocatgo";
 
