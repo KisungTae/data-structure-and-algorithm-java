@@ -4,8 +4,8 @@ package com.company.moderate;
 //        generates a random number between O and 4 (inclusive), write a method that generates a random
 //        number between O and 6 (inclusive).
 
-public class Question23Review {
-    public Question23Review() {
+public class Question23ReviewAgain {
+    public Question23ReviewAgain() {
 
     }
 }

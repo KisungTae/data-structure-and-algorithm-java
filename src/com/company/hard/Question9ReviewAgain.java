@@ -6,9 +6,9 @@ package com.company.hard;
 
 //  3:16
 
-public class Question9Review {
+public class Question9ReviewAgain {
 
-    public Question9Review() {
+    public Question9ReviewAgain() {
         int k = 9;
 
     }

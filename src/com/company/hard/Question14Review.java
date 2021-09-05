@@ -2,10 +2,7 @@ package com.company.hard;
 
 // Smallest K: Design an algorithm to find the smallest K numbers in an array.
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Random;
+import java.util.*;
 
 public class Question14Review {
 
@@ -21,28 +18,80 @@ public class Question14Review {
 //        for (int i = 0; i < n; i++) {
 //            arr[i] = random.nextInt(100);
 //        }
-        System.out.println(Arrays.toString(arr));
+//        System.out.println(Arrays.toString(arr));
 
         MaxHeap maxHeap = new MaxHeap(n);
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            arrayList.add(arr[i]);
-            maxHeap.insert(arr[i]);
-        }
+//        ArrayList<Integer> arrayList = new ArrayList<>();
+//        for (int i = 0; i < n; i++) {
+//            arrayList.add(arr[i]);
+//            maxHeap.insert(arr[i]);
+//        }
 //        maxHeap.print();
 //        System.out.println("maxHeap.extract(): " + maxHeap.extract());
 //        maxHeap.print();
 
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(1);
+        arrayList.add(4);
+        arrayList.add(3);
+        arrayList.add(9);
+        arrayList.add(2);
+        arrayList.add(7);
+        arrayList.add(7);
+        arrayList.add(3);
+        arrayList.add(4);
 
-        ArrayList<Integer> left = rankingSort(arrayList, k);
+        ArrayList<Integer> left = rankSort(arrayList, k);
         Arrays.sort(arr);
         System.out.println(Arrays.toString(arr));
         System.out.println("left: " + left.toString());
     }
 
+    private ArrayList<Integer> rankSort(ArrayList<Integer> arr, int k) {
+        ArrayList<Integer> left = new ArrayList<>();
+        ArrayList<Integer> right = new ArrayList<>();
+
+        int middleIndex = arr.size() / 2;
+        int middleValue = arr.get(middleIndex);
+
+        System.out.println(arr.toString());
+
+        for (int num : arr) {
+//            System.out.println("num: " + num);
+            if (num <= middleValue) left.add(num);
+            else right.add(num);
+        }
+
+        if (left.size() < k) {
+            ArrayList<Integer> partial = rankSort(right, k - left.size());
+            left.addAll(partial);
+            return left;
+        } else if (left.size() == k) {
+            return left;
+        } else {
+            return rankSort(left, k);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     private ArrayList<Integer> rankingSort(ArrayList<Integer> arr, int rank) {
         ArrayList<Integer> left = new ArrayList<>();
         ArrayList<Integer> right = new ArrayList<>();
+
+        HashSet<Integer> set = new HashSet<>();
+        char d = 'd';
 
         Random random = new Random();
         int pivot = arr.get(random.nextInt(arr.size()));

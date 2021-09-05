@@ -1,6 +1,10 @@
 package com.company;
 
-import com.company.moderate.*;
+import com.company.hard.*;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class Main {
 
@@ -164,7 +168,24 @@ public class Main {
 //        new Question16Review();
 //        new Question17Review();
 //        new Question20Review();
-        new Question21Review();
+//        new Question21Review();
+//        new Question24Review();
+//        new Question1Review();
+//        new Question2();
+//        new Question3ReviewAgain();
+//        new Question4Review();
+//        new Question5Review();
+//        new Question6Review();
+//        new Question7Review();
+//        new Question8Review();
+//        new RadixSort();
+//        new Question10Review();
+//        new Question12ReviewAgain();
+//        new Question13ReviewAgain();
+
     }
+
+
+
 
 }

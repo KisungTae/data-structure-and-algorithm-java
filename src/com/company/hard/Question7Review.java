@@ -22,14 +22,14 @@ import java.util.Map;
 public class Question7Review {
     public Question7Review() {
 
-        ArrayList<NameFrequency> nameFrequencies = new ArrayList<>();
-        nameFrequencies.add(new NameFrequency("John", 15));
-        nameFrequencies.add(new NameFrequency("Jon", 12));
-//        nameFrequencies.add(new NameFrequency("Johnny", 13));
-        nameFrequencies.add(new NameFrequency("Chris", 13));
-        nameFrequencies.add(new NameFrequency("Kris", 4));
-        nameFrequencies.add(new NameFrequency("Christopher", 19));
-        nameFrequencies.add(new NameFrequency("Michael", 19));
+        HashMap<String, Integer> nameFrequencies = new HashMap<>();
+        nameFrequencies.put("John", 15);
+        nameFrequencies.put("Jon", 12);
+        nameFrequencies.put("Johnny", 13);
+        nameFrequencies.put("Chris", 13);
+        nameFrequencies.put("Kris", 4);
+        nameFrequencies.put("Christopher", 19);
+        nameFrequencies.put("Michael", 19);
 
         ArrayList<Synonym> synonyms = new ArrayList<>();
         synonyms.add(new Synonym("Jon","John"));
@@ -37,62 +37,85 @@ public class Question7Review {
         synonyms.add(new Synonym("Chris", "Kris"));
         synonyms.add(new Synonym("Chris", "Christopher"));
 
-        System.out.println(nameFrequencies.toString());
-        System.out.println(synonyms.toString());
+        HashMap<String, Integer> frequencies = findFrequencies(nameFrequencies, synonyms);
+        for (Map.Entry<String, Integer> entry : frequencies.entrySet()) {
+            System.out.println(entry.getKey() + " has " + entry.getValue());
+        }
 
+    }
 
-        Map<String, String> dic = new HashMap<>();
+    private HashMap<String, Integer> findFrequencies(HashMap<String, Integer> nameFrequencies, ArrayList<Synonym> synonyms) {
+        Graph graph = createGraph(nameFrequencies);
+        connectGraph(graph, synonyms);
+        return getFrequencies(graph);
+    }
+
+    private Graph createGraph(HashMap<String, Integer> nameFrequencies) {
+        Graph graph = new Graph();
+        for (Map.Entry<String, Integer> entry : nameFrequencies.entrySet()) {
+            System.out.println(entry.getKey());
+            graph.createNode(entry.getKey(), entry.getValue());
+        }
+        return graph;
+    }
+
+    private void connectGraph(Graph graph, ArrayList<Synonym> synonyms) {
         for (Synonym synonym : synonyms) {
-            if (dic.containsKey(synonym.firstName)) {
-                String parentName = dic.get(synonym.firstName);
-                dic.put(synonym.secondName, parentName);
-            } else {
-                dic.put(synonym.firstName, synonym.firstName);
-                dic.put(synonym.secondName, synonym.firstName);
+            graph.addChild(synonym.firstName, synonym.secondName);
+        }
+    }
+
+    private HashMap<String, Integer> getFrequencies(Graph graph) {
+        HashMap<String, Integer> names = new HashMap<>();
+        for (Map.Entry<String, Node> entry : graph.nodes.entrySet()) {
+            Node root = entry.getValue();
+            if (!root.visited && root.parent == null) {
+                int count = getFrequency(root);
+                names.put(root.name, count);
             }
         }
+        return names;
+    }
 
-//        dic.forEach((key, value) -> System.out.println(key + " - " + value));
+    private int getFrequency(Node root) {
+        if (root.visited) return 0;
+        int count = 0;
+        for (Node node : root.children) {
+            count += getFrequency(node);
+        }
+        root.visited = true;
+        return count + root.frequency;
+    }
 
-        Map<String, NameFrequency> nameFrequencyMap = new HashMap<>();
-        for (NameFrequency nameFrequency : nameFrequencies) {
-            String key = dic.get(nameFrequency.name);
-            if (key == null) key = nameFrequency.name;
+    class Graph {
+        public HashMap<String, Node> nodes = new HashMap<>();
 
-            NameFrequency newNameFrequency = nameFrequencyMap.get(key);
-            if (newNameFrequency == null) newNameFrequency = new NameFrequency(key);
-            newNameFrequency.frequency += nameFrequency.frequency;
-            nameFrequencyMap.put(key, newNameFrequency);
+        public void createNode(String name, int frequency) {
+            Node node = new Node(name, frequency);
+            nodes.put(name, node);
         }
 
-        nameFrequencyMap.forEach((key, value) -> System.out.println(value.name + " - " + value.frequency));
+        public void addChild(String parent, String child) {
+            Node parentNode = nodes.get(parent);
+            Node childNode = nodes.get(child);
+            parentNode.children.add(childNode);
+            childNode.parent = parentNode;
+        }
     }
 
     class Node {
         public String name;
-
-    }
-
-    class NameFrequency {
-        public String name;
         public int frequency;
+        public boolean visited = false;
+        public Node parent;
+        public ArrayList<Node> children = new ArrayList<>();
 
-        public NameFrequency(String name, int frequency) {
+        public Node(String name, int frequency) {
             this.name = name;
             this.frequency = frequency;
         }
-
-        public NameFrequency(String name) {
-            this.name = name;
-        }
-
-        @Override public String toString() {
-            return "NameFrequency{" +
-                   "name='" + name + '\'' +
-                   ", frequency=" + frequency +
-                   '}';
-        }
     }
+
 
     class Synonym {
         public String firstName;

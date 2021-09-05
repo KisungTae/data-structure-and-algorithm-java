@@ -15,16 +15,16 @@ public class Question2 {
         for (int i = 0; i < cardSize; i++) {
             cards[i] = i;
         }
+        shuffle(cards);
+    }
 
-        System.out.println(Arrays.toString(cards));
+    private void shuffle(int[] cards) {
         Random random = new Random();
-        for (int i = cards.length - 1; i >= 0; i--) {
-            int randomIndex = random.nextInt(i + 1);
-            if (randomIndex == i) continue;
-            int temp = cards[randomIndex];
-            cards[randomIndex] = cards[i];
+        for (int i = 1; i < cards.length; i++) {
+            int k = random.nextInt(i);
+            int temp = cards[k];
+            cards[k] = cards[i];
             cards[i] = temp;
         }
-        System.out.println(Arrays.toString(cards));
     }
 }

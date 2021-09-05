@@ -11,10 +11,10 @@ package com.company.hard;
 //        BiNode) into a doubly linked list. The values should be kept in order and the operation should be
 //        performed in place (that is, on the original data structure).
 
-public class Question12Review {
+public class Question12ReviewAgain {
 
-    public Question12Review() {
-        BiNode root = new BiNode(8);
+    public Question12ReviewAgain() {
+        BiNode node8 = new BiNode(8);
 
         BiNode node6 = new BiNode(6);
         BiNode node15 = new BiNode(15);
@@ -25,11 +25,11 @@ public class Question12Review {
         BiNode node20 = new BiNode(20);
 
         BiNode node2 = new BiNode(2);
-//        BiNode node3 = new BiNode(3);
+        BiNode node5 = new BiNode(5);
         BiNode node25 = new BiNode(25);
 
-        root.node1 = node6;
-        root.node2 = node15;
+        node8.node1 = node6;
+        node8.node2 = node15;
 
         node6.node1 = node4;
         node6.node2 = node7;
@@ -37,11 +37,54 @@ public class Question12Review {
         node15.node2  = node20;
 
         node4.node1 = node2;
-//        node4.node2 = node3;
+        node4.node2 = node5;
         node20.node2 = node25;
 
+        BiNode root = convert(node8);
+        BiNode itr = root;
 
-        
+        while (itr.node2 != null) {
+            System.out.print(itr.data);
+            System.out.print(" ==> ");
+            itr = itr.node2;
+        }
+        System.out.print(itr.data);
+
+        System.out.println();
+
+        while (itr.node1 != null) {
+            System.out.print(itr.data);
+            System.out.print(" ==> ");
+            itr = itr.node1;
+        }
+        System.out.println(itr.data);
+    }
+
+
+    private BiNode convert(BiNode root) {
+        if (root == null) return null;
+
+        BiNode left = convert(root.node1);
+
+        if (root.node1 != null) {
+            root.node1.node2 = root;
+        }
+
+        BiNode right = convert(root.node2);
+        root.node2 = right;
+        if (right != null) {
+            right.node1 = root;
+        }
+
+        if (left == null) return root;
+        else return left;
+    }
+
+    private void inorder(BiNode root) {
+        if (root == null) return;
+        inorder(root.node1);
+        System.out.println("root: " + root.data);
+        inorder(root.node2);
     }
 
     class BiNode {
