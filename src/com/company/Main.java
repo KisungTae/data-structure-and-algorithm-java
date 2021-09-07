@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.hackerrank.SherlockandAnagrams;
 import com.company.hard.*;
 
 import java.util.ArrayList;
@@ -182,7 +183,7 @@ public class Main {
 //        new Question10Review();
 //        new Question12ReviewAgain();
 //        new Question13ReviewAgain();
-
+        new SherlockandAnagrams();
     }
 
 
